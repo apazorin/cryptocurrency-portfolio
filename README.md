@@ -1,5 +1,5 @@
-## cryptocurrency-portfolio
-This app allows to manage easly all your coins and create different portfolios with portfolio lines. 
+# Cryptocurrency portfolio
+This web app allows to manage easly all your coins and create different portfolios with portfolio lines. 
 
-# Technology
+## Technology
 Created by Angular and json-server data base server.
