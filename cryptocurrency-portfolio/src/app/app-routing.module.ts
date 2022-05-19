@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path:'coins', loadChildren: () => import('./coins/coins.module').then(m => m.CoinsModule)}
+  { path:'coins', loadChildren: () => import('./coins/coins.module').then(m => m.CoinsModule)},
+  { path: '**', redirectTo: 'coins'}
 ];
 
 @NgModule({
