@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Coin } from '../../interfaces/coin.interface';
+import { CoinsService } from '../../services/coin.service';
 
 @Component({
   selector: 'app-list',
@@ -8,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  coins: Coin[] = []
+
+  constructor(private service: CoinsService) { }
 
   ngOnInit(): void {
+
+    this.service.getAllCoins().subscribe( resp => {
+      this.coins = resp
+    })
+
+
   }
 
 }

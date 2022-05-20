@@ -1,1 +1,5 @@
-<p>list works!</p>
+<div class="row">
+    <div class="col-sm-3"  *ngFor="let c of coins"> 
+       <app-cards [coin]="c"></app-cards>
+    </div>
+</div>

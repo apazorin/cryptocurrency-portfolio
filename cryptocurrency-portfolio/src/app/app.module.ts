@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './coins/pages/list/list.component';
-import { CoinsComponent } from './coins/pages/coins/coins.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SidenavComponent } from './shared/sidenav/sidenav.component'
 
@@ -12,8 +11,6 @@ import { SidenavComponent } from './shared/sidenav/sidenav.component'
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    CoinsComponent,
     SidenavComponent
   ],
   imports: [

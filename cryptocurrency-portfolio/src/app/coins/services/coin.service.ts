@@ -12,28 +12,28 @@ export class CoinsService {
 
   constructor(private http: HttpClient) { }
 
-  public getAllCoins(): Observable<Coin> { 
-    return this.http.get<Coin>(`${URL}`)
+  public getAllCoins(): Observable<Coin[]> { 
+    return this.http.get<Coin[]>(`${this.URL}`)
   }
 
   public getSugerencias(termino: string): Observable<Coin> { 
-    return this.http.get<Coin>(`${URL}?q=${termino}`)
+    return this.http.get<Coin>(`${this.URL}?q=${termino}`)
   }
 
   public getCoin(coinId: number): Observable<Coin> { 
-    return this.http.get<Coin>(`${URL}/${coinId}`)
+    return this.http.get<Coin>(`${this.URL}/${coinId}`)
   }
 
   public deleteCoin(coinId: number): Observable<Coin> { 
-    return this.http.delete<Coin>(`${URL}/${coinId}`)
+    return this.http.delete<Coin>(`${this.URL}/${coinId}`)
   }
   
   public modifyCoin(coinId: number, coin: Coin): Observable<Coin> { 
-    return this.http.post<Coin>(`${URL}/${coinId}`, coin)
+    return this.http.post<Coin>(`${this.URL}/${coinId}`, coin)
   }
 
   public addCoin(coinId: number, coin: Coin): Observable<Coin> { 
-    return this.http.put<Coin>(`${URL}/${coinId}`, coin)
+    return this.http.put<Coin>(`${this.URL}/${coinId}`, coin)
   }
 
 }
