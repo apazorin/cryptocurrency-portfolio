@@ -49,6 +49,16 @@
       "id": 10,
       "acronym": "ETC",
       "name": "Ethereum classic"
+    },
+    {
+      "name": "ansasd",
+      "acronym": "bit",
+      "id": 11
+    },
+    {
+      "name": "dszf",
+      "acronym": "bit",
+      "id": 12
     }
   ],
   "portfolios": [

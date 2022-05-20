@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-.fondo {
-    background-color: #141618
-}
+.fondo { background-color: #141618;}
+body { color: white}
+a { cursor: pointer; }
+input[type] { background-color: #141618; color: white; }
+input[type]:focus, input[type]:active { background-color: #070809; color: white}

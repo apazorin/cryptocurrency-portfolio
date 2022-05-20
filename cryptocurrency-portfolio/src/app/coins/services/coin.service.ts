@@ -29,11 +29,12 @@ export class CoinsService {
   }
   
   public modifyCoin(coinId: number, coin: Coin): Observable<Coin> { 
-    return this.http.post<Coin>(`${this.URL}/${coinId}`, coin)
+    return this.http.put<Coin>(`${this.URL}/${coinId}`, coin)
   }
 
-  public addCoin(coinId: number, coin: Coin): Observable<Coin> { 
-    return this.http.put<Coin>(`${this.URL}/${coinId}`, coin)
+  public addCoin(coin: Coin): Observable<Coin> { 
+    console.log(coin)
+    return this.http.post<Coin>(`${this.URL}`, coin)
   }
 
 }

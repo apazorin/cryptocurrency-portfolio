@@ -1,7 +1,21 @@
 <div class="card text-bg-dark mb-3" style="max-width: 18rem;">
-    <div class="card-header"> {{ coin.acronym }} </div>
+    <div class="card-header">
+        <div class="row align-items-end">
+            <div class="col mr-3">
+                {{ coin.acronym }} 
+            </div>
+            <div class="col">
+                <div class="col float-end"><a><i class="oi" data-glyph="trash" title="delete"></i></a></div>
+                <div class="col float-end me-3"><a><i class="oi" data-glyph="pencil" title="edit"></i></a></div>
+            </div>
+        </div>
+        
+        
+    </div>
     <div class="card-body">
         <h5 class="card-title">{{ coin.name }}</h5>
-        <a href="#" class="btn btn-dark">Buy this coin</a>
+        <div class="d-grid gap-2">
+            <a href="#" class="btn btn-outline-info mt-3">Buy <strong>{{coin.acronym}}</strong></a>
+          </div>
     </div>
  </div>

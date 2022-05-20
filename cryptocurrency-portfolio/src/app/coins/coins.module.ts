@@ -5,6 +5,7 @@ import { CoinsRoutingModule } from './coins-routing.module';
 import { CardsComponent } from './componentes/cards/cards.component';
 import { ListComponent } from './pages/list/list.component';
 import { CoinsComponent } from './pages/coins/coins.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CoinsComponent } from './pages/coins/coins.component';
   ],
   imports: [
     CommonModule,
-    CoinsRoutingModule
+    CoinsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CoinsModule { }
