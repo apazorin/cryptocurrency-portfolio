@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Portfolio } from '../../interfaces/portfolio';
 
 @Component({
   selector: 'app-table',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class TableComponent implements OnInit {
+
+  @Input() portfolio!: Portfolio
 
   constructor() { }
 

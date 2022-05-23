@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Portfolio } from '../../interfaces/portfolio';
 
 @Component({
   selector: 'app-list',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   ]
 })
 export class ListComponent implements OnInit {
+
+  portfolios: Portfolio[] = []
 
   constructor() { }
 
