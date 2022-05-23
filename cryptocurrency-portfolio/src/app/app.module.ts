@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListComponent } from './coins/pages/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
-import { SidenavComponent } from './shared/sidenav/sidenav.component'
+import { SidenavComponent } from './shared/sidenav/sidenav.component';
+import { ListComponent } from './wallet/pages/list/list.component';
+import { WalletComponent } from './wallet/pages/wallet/wallet.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidenavComponent
+    SidenavComponent,
+    ListComponent,
+    WalletComponent
   ],
   imports: [
     BrowserModule,
