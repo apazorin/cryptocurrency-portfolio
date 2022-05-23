@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
+  selector: 'app-table',
+  templateUrl: './table.component.html',
   styles: [
   ]
 })
-export class ListComponent implements OnInit {
+export class TableComponent implements OnInit {
 
   constructor() { }
 
