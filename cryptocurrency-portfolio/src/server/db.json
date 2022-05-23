@@ -1,21 +1,6 @@
 {
   "coins": [
     {
-      "id": 1,
-      "acronym": "BTC",
-      "name": "Bitcoin"
-    },
-    {
-      "id": 2,
-      "acronym": "ETH",
-      "name": "Ethereum"
-    },
-    {
-      "id": 3,
-      "acronym": "LTC",
-      "name": "Litecoin"
-    },
-    {
       "id": 4,
       "acronym": "XMR",
       "name": "Monero"
@@ -49,16 +34,6 @@
       "id": 10,
       "acronym": "ETC",
       "name": "Ethereum classic"
-    },
-    {
-      "name": "ansasd",
-      "acronym": "bit",
-      "id": 11
-    },
-    {
-      "name": "dszf",
-      "acronym": "bit",
-      "id": 12
     }
   ],
   "portfolios": [
@@ -77,12 +52,6 @@
   ],
   "lines": [
     {
-      "id": 1,
-      "portfolioId": 1,
-      "coinId": 1,
-      "amount": 1.5
-    },
-    {
       "id": 2,
       "portfolioId": 1,
       "coinId": 6,
@@ -93,18 +62,6 @@
       "portfolioId": 1,
       "coinId": 8,
       "amount": 9.2
-    },
-    {
-      "id": 4,
-      "portfolioId": 2,
-      "coinId": 2,
-      "amount": 7.4
-    },
-    {
-      "id": 5,
-      "portfolioId": 2,
-      "coinId": 3,
-      "amount": 5
     },
     {
       "id": 6,

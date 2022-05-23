@@ -28,8 +28,8 @@ export class CoinsService {
     return this.http.delete<Coin>(`${this.URL}/${coinId}`)
   }
   
-  public modifyCoin(coinId: number, coin: Coin): Observable<Coin> { 
-    return this.http.put<Coin>(`${this.URL}/${coinId}`, coin)
+  public editCoin(coin: Coin): Observable<Coin> { 
+    return this.http.put<Coin>(`${this.URL}/${coin.id}`, coin)
   }
 
   public addCoin(coin: Coin): Observable<Coin> { 

@@ -6,13 +6,15 @@ import { CardsComponent } from './componentes/cards/cards.component';
 import { ListComponent } from './pages/list/list.component';
 import { CoinsComponent } from './pages/coins/coins.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalComponent } from './componentes/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     CardsComponent,
     ListComponent,
-    CoinsComponent
+    CoinsComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

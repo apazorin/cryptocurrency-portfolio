@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CoinsService } from '../../services/coin.service';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { Coin } from '../../interfaces/coin.interface';
 import { CoinsValidatorService } from '../../../shared/validators/coins-validator.service';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-coins',
@@ -11,7 +12,7 @@ import { CoinsValidatorService } from '../../../shared/validators/coins-validato
   styles: [
   ]
 })
-export class CoinsComponent{
+export class CoinsComponent implements OnInit{
 
   error = ''
 
@@ -20,7 +21,11 @@ export class CoinsComponent{
     name: ['', [Validators.required]]
   })
 
-  //@ViewChild() title!: string
+  coin: Coin = {
+    id: -1,
+    acronym: '',
+    name: ''
+  }
 
   get nameErrorMensage(): string {
     const errors = this.form.get('acronym')?.errors
@@ -31,9 +36,41 @@ export class CoinsComponent{
 
   public coins$!: Observable<Coin[]>
 
-  constructor(private service: CoinsService, private fb: FormBuilder, private cv: CoinsValidatorService) { }
+  constructor( private service: CoinsService, private fb: FormBuilder, private cv: CoinsValidatorService,
+              private router:Router, private activatedRoute: ActivatedRoute ) { }
 
-  submitFormulario() {
+  ngOnInit(): void {
+    if(this.router.url.includes('editar')) {
+      this.activatedRoute.params
+      .pipe(
+        switchMap( ({id}) => 
+        this.service.getCoin(id)
+      ))
+      .subscribe(coin => {
+        this.coin = coin
+        console.log(this.coin)
+        this.form = this.fb.group({
+          acronym: [coin.acronym, [Validators.required], [this.cv]],
+          name: [coin.name, [Validators.required]]
+        })
+      })
+    } else {
+
+    }
+  }
+
+  deleteCoin() {
+    this.form.markAllAsTouched()
+    this.service.deleteCoin(this.coin.id!).subscribe(resp => {
+        this.form.reset()
+        this.error = ''
+        this.router.navigate(['coins/list'])
+      }, err => {
+        this.error = `Your coin can't be deleted. Please, try again`
+      }) 
+  }
+
+  addCoin() {
     this.form.markAllAsTouched()
     if(this.form.valid == true) {
       const coin: Coin = {
@@ -45,6 +82,22 @@ export class CoinsComponent{
         this.error = ''
       }, err => {
         this.error = `Your coin can't be added. Please, try again`
+      }) 
+    }
+  }
+
+  editCoin() {
+    this.form.markAllAsTouched()
+    if(this.form.valid == true) {
+      const coin: Coin = {
+        name: this.form.get('name')?.value,
+        acronym: this.form.get('acronym')?.value
+      }
+      this.service.editCoin(coin).subscribe(resp => {
+        this.form.reset()
+        this.error = ''
+      }, err => {
+        this.error = `Your coin can't be edited. Please, try again`
       }) 
     }
   }

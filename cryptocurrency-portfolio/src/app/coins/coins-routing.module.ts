@@ -7,6 +7,7 @@ const routes: Routes = [{
   path: '',
   children: [
     { path: 'coin', component: CoinsComponent },
+    { path: 'coin/editar/:id', component: CoinsComponent },
     { path: 'list', component: ListComponent },
     { path: '**', redirectTo: 'list' }
   ]
