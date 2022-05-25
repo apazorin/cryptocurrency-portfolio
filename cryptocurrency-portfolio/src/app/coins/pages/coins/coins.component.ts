@@ -48,14 +48,13 @@ export class CoinsComponent implements OnInit{
       ))
       .subscribe(coin => {
         this.coin = coin
-        console.log(this.coin)
         this.form = this.fb.group({
           acronym: [coin.acronym, [Validators.required], [this.cv]],
           name: [coin.name, [Validators.required]]
         })
       })
     } else {
-
+      this.error = `The coin can't be loaded right now. Please refresh and try again`
     }
   }
 
@@ -90,12 +89,12 @@ export class CoinsComponent implements OnInit{
     this.form.markAllAsTouched()
     if(this.form.valid == true) {
       const coin: Coin = {
+        id: this.coin.id,
         name: this.form.get('name')?.value,
         acronym: this.form.get('acronym')?.value
       }
       this.service.editCoin(coin).subscribe(resp => {
-        this.form.reset()
-        this.error = ''
+        this.error = 'Your coin was succesfully edited'
       }, err => {
         this.error = `Your coin can't be edited. Please, try again`
       }) 

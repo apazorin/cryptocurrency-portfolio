@@ -20,19 +20,19 @@ export class WalletService {
     return this.http.get<Portfolio>(`${this.URL}?q=${termino}`)
   }
 
-  public getCoin(id: number): Observable<Portfolio> { 
+  public getPortfolio(id: number): Observable<Portfolio> { 
     return this.http.get<Portfolio>(`${this.URL}/${id}`)
   }
 
-  public deleteCoin(id: number): Observable<Portfolio> { 
+  public deletePortfolio(id: number): Observable<Portfolio> { 
     return this.http.delete<Portfolio>(`${this.URL}/${id}`)
   }
   
-  public editCoin(portfolio: Portfolio): Observable<Portfolio> { 
+  public editPortfolio(portfolio: Portfolio): Observable<Portfolio> { 
     return this.http.put<Portfolio>(`${this.URL}/${portfolio.id}`, portfolio)
   }
 
-  public addCoin(portfolio: Portfolio): Observable<Portfolio> { 
+  public addPortfolio(portfolio: Portfolio): Observable<Portfolio> { 
     return this.http.post<Portfolio>(`${this.URL}`, portfolio)
   }
 

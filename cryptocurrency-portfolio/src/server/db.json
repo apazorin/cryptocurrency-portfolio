@@ -1,16 +1,6 @@
 {
   "coins": [
     {
-      "id": 4,
-      "acronym": "XMR",
-      "name": "Monero"
-    },
-    {
-      "id": 5,
-      "acronym": "REQ",
-      "name": "Request"
-    },
-    {
       "id": 6,
       "acronym": "BNK",
       "name": "Bankera"
@@ -68,12 +58,6 @@
       "portfolioId": 2,
       "coinId": 7,
       "amount": 4.8
-    },
-    {
-      "id": 7,
-      "portfolioId": 3,
-      "coinId": 5,
-      "amount": 6
     },
     {
       "id": 8,

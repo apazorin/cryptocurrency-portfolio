@@ -1,1 +1,40 @@
-<p>wallet works!</p>
+<div class="row">
+    <div class="col">
+        <h3> {{(portfolio.id == -1) ? 'Create' : 'Edit'}} coin </h3>
+    </div>
+    <div class="col" *ngIf="(portfolio.id == -1); else edit">
+        <button class="btn btn-outline-info float-end" [disabled]="form.pending" (click)="addPortfolio()">
+            <a><i class="oi me-1" data-glyph="plus" title="edit"></i>Add</a>
+        </button>
+    </div>
+    <ng-template #edit>
+        <div class="col">
+            <button class="btn btn-outline-info float-end" [disabled]="form.pending" (click)="editPortfolio()">
+                <a><i class="oi me-1" data-glyph="pencil" title="add"></i>Edit</a>
+            </button>
+
+            <button class="btn btn-outline-danger float-end me-3"  type="button" data-toggle="modal" data-target="#deleteModal">
+                <a><i class="oi me-1" data-glyph="trash" title="delete"></i>Delete</a>
+            </button>
+        </div>
+    </ng-template>
+</div>
+
+<div class="alert alert-danger d-flex align-items-center mt-5" role="alert" *ngIf="error != ''">
+    {{error}}
+</div>
+
+<form [formGroup]="form" class="p-3">
+    <div class="row">
+        <div class="col">
+            <!--Name-->
+            <div class="row mb-3">
+                <label class="col-form-label">Name</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" placeholder="Coin name" formControlName="name">
+                    <span class="form-text text-danger" *ngIf="campoValido('name')">The name is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

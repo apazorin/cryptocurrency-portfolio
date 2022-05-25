@@ -9,11 +9,17 @@ import { Portfolio } from '../../interfaces/portfolio';
 })
 export class TableComponent implements OnInit {
 
-  @Input() portfolio!: Portfolio
+  @Input() portfolios!: Portfolio[]
+  page: number = 1
+  pageSize: number = 10
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  
+  delete(p: Portfolio) {
+    console.log(p.id)
   }
 
 }
