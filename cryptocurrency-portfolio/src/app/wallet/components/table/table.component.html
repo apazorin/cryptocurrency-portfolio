@@ -3,20 +3,26 @@
         <tr class="table-dark"> 
             <th class="table-dark"> Id</th>
             <th class="table-dark"> Wallet</th>
+            <th class="table-dark"> Amount</th>
             <th class="table-dark"> </th>
         </tr>
     </thead>
     <tbody>
-        <tr class="table-dark" *ngFor="let p of portfolios | slice: (page-1) * pageSize : page * pageSize">
-            <td class="table-dark"> {{p.id}}</td>
-            <td class="table-dark"> {{p.name}}</td>
+        <tr class="table-dark" *ngFor="let p of portfolios | slice: (page-1) * pageSize : page * pageSize" (dblclick)="navegacion(p.id)" style="cursor: pointer">
+            <td class="table-dark"> {{ p.id }}</td>
+            <td class="table-dark"> {{ p.name }}</td>
+            <td class="table-dark"> {{ p.totalAmount }} </td>
             <td class="table-dark">
                 <div class="float-end">
-                    <a><i class="oi me-3" data-glyph="trash" title="delete" (click)="delete(p)"></i></a>
+                    <a><i class="oi me-3" data-glyph="trash" title="delete" data-toggle="modal" data-target="#deleteModal"></i></a>
                     <a><i class="oi" data-glyph="pencil" title="edit" [routerLink]="['/wallet/wallet/editar', p.id]"></i></a>
                 </div>
             </td>
+            <app-modal [portfolio]="p" class="modal fade dark" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></app-modal>
         </tr>
     </tbody>
-</table>
+</table> 
+
 <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="portfolios.length"></ngb-pagination>
+
+

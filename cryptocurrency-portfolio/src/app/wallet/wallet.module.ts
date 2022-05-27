@@ -7,13 +7,19 @@ import { ListComponent } from './pages/list/list.component';
 import { WalletComponent } from './pages/wallet/wallet.component';
 import { TableComponent } from './components/table/table.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LinesComponentComponent } from './components/lines-component/lines-component.component';
+import { BuyComponent } from './pages/buy/buy.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 
 @NgModule({
   declarations: [
     ListComponent,
     WalletComponent,
-    TableComponent
+    TableComponent,
+    LinesComponentComponent,
+    BuyComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,

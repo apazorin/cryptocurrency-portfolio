@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Portfolio } from '../../interfaces/portfolio';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-table',
@@ -13,13 +14,14 @@ export class TableComponent implements OnInit {
   page: number = 1
   pageSize: number = 10
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.portfolios.forEach(p => console.log(p))
   }
-  
-  delete(p: Portfolio) {
-    console.log(p.id)
+
+  navegacion(id: number | undefined) {
+    this.router.navigate(['/wallet/wallet/editar', id])
   }
 
 }

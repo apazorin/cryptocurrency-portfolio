@@ -39,9 +39,9 @@ export class WalletComponent implements OnInit {
         this.form = this.fb.group({
           name: [portfolio.name, [Validators.required]]
         })
+      }, err => {
+        this.error = `The wallet can't be loaded right now. Please refresh and try again`
       })
-    } else {
-      this.error = `The wallet can't be loaded right now. Please refresh and try again`
     }
   }
 
@@ -65,7 +65,8 @@ export class WalletComponent implements OnInit {
     if(this.form.valid == true) {
       const portfolio: Portfolio = {
         id: this.portfolio.id,
-        name: this.form.get('name')?.value
+        name: this.form.get('name')?.value,
+        lines: this.portfolio.lines
       }
       this.service.editPortfolio(portfolio).subscribe(resp => {
         this.error = 'Your coin was succesfully edited'

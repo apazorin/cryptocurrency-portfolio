@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col">
+        <h3> Buy coins </h3>
+    </div>
+    <div class="col">
+        <button class="btn btn-outline-info float-end" [disabled]="form.pending" (click)="addLine()">
+            <a><i class="oi me-1" data-glyph="dollar" title="buy"></i>Buy</a>
+        </button>
+    </div>
+</div>
+
+<div class="alert alert-danger d-flex align-items-center mt-5" role="alert" *ngIf="error != ''">
+    {{error}}
+</div>
+
+<form [formGroup]="form" class="p-3">
+    <div class="row">
+        <div class="col">
+            <div class="row mb-3">
+                <!--Wallet-->
+                <div class="col">
+                    <label class="form-label">Coin:</label>
+                    <select class="form-select bg-dark text-white" formControlName="coinId">
+                        <option value="coin.ic" *ngIf="coin != undefined">{{ coin.name }}</option>
+                        <option *ngFor="let c of coins" 
+                                [value]="c.id">{{ c.name }}</option>
+                    </select>
+                    <span class="form-text text-danger" *ngIf="campoValido('coinId')">You has to select a coin</span>
+                </div>
+                <!--Coin-->
+                <div class="col">
+                    <label class="form-label">Select your wallet:</label>
+                    <select class="form-select bg-dark text-white" formControlName="portfolioId">
+                        <option *ngFor="let p of portfolios"
+                                [value]="p.id">{{ p.name }}</option>
+                    </select>
+                    <span class="form-text text-danger" *ngIf="campoValido('portfolioId')">You has to select a wallet</span>
+                </div>
+            </div>
+            <!--Amount-->
+            <div class="row mb-5">
+                <label class="col-form-label">Amount</label>
+                <div class="col-sm-6">
+                    <input type="decimal" class="form-control bg-dark" placeholder="Amount" formControlName="amount">
+                    <span class="form-text text-danger" *ngIf="campoValido('amount')">The amount is required</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

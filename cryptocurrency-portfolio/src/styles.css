@@ -4,3 +4,4 @@ body { color: white}
 a { cursor: pointer; }
 input[type] { background-color: #141618; color: white; }
 input[type]:focus, input[type]:active { background-color: #070809; color: white}
+select { background-color: #141618; color: white; }

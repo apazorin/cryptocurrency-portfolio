@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col">
-        <h3> {{(portfolio.id == -1) ? 'Create' : 'Edit'}} coin </h3>
+        <h3> {{(portfolio.id == -1) ? 'Create' : 'Edit'}} portfolio </h3>
     </div>
     <div class="col" *ngIf="(portfolio.id == -1); else edit">
         <button class="btn btn-outline-info float-end" [disabled]="form.pending" (click)="addPortfolio()">
@@ -38,3 +38,6 @@
         </div>
     </div>
 </form>
+
+<app-lines-component [portfolio]=portfolio *ngIf="portfolio.id != -1"></app-lines-component>
+<app-modal [portfolio]="portfolio" class="modal fade dark" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"></app-modal>

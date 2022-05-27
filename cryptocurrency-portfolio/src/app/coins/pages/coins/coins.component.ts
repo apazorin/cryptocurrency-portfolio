@@ -52,9 +52,9 @@ export class CoinsComponent implements OnInit{
           acronym: [coin.acronym, [Validators.required], [this.cv]],
           name: [coin.name, [Validators.required]]
         })
+      }, err => {
+        this.error = `The coin can't be loaded right now. Please refresh and try again`
       })
-    } else {
-      this.error = `The coin can't be loaded right now. Please refresh and try again`
     }
   }
 
